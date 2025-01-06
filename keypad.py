@@ -73,3 +73,29 @@ class Keypad:
                     return key_pressed
             col_pin.value(1)  # Set column pin back to HIGH
         return None  # Return None if no key is pressed
+
+
+
+
+        
+        def key_read(keypad):
+        """
+        Reads a single key press and waits for its release before returning.
+
+        Args:
+            keypad (Keypad): An instance of the Keypad class.
+
+        Returns:
+            str: The pressed key.
+        """
+        value = None
+
+        while True:
+            key = keypad.read_keypad()  # Read the keypad
+            if key:  # A key is pressed
+                value = key  # Store the pressed key
+                while keypad.read_keypad():  # Wait until the key is released
+                    sleep(0.05)  # Small delay to reduce CPU usage
+                break  # Exit the loop once the key is released
+
+        return value  # Return the detected key
