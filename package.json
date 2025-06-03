@@ -1,0 +1,7 @@
+{
+  "urls": [
+    ["keypad.py", "github:PerfecXX/MicroPython-SimpleKeypad/keypad.py"]
+  ],
+  "version": "1.0.0",
+  "deps": []
+}
